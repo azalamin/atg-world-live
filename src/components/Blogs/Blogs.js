@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import Blog from "./Blog";
 import './Blogs.css';
 
 const Blogs = () => {
+    const [posts, setPosts] = useState([]);
+    useEffect( () => {
+        fetch('data.json')
+        .then(res => res.json())
+        .then(data => setPosts(data))
+    },[])
     return (
       <section className="mt-5">
         <div className="container">
@@ -66,6 +74,14 @@ const Blogs = () => {
             </div>
           </nav>
           <hr />
+          <div className="mt-3 row">
+            <div className="col-8">
+                {
+                    posts.map(post => <Blog key={post?.id} post={post} />)
+                }
+            </div>
+            <div className="col-4">z</div>
+          </div>
         </div>
       </section>
     );
