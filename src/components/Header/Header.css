@@ -12,3 +12,15 @@
   font-size: 18px;
   color: #8b8a8a;
 }
+.icon2 {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  font-size: 18px;
+  color: #8b8a8a;
+  cursor: pointer;
+}
+.info-icon {
+  font-size: 18px;
+  margin-right: 6px;
+}

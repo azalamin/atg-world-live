@@ -1,16 +1,19 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { HiOutlineSearch } from "react-icons/hi";
-import logo from '../../assets/logo.png';
-import './Header.css';
+import logo from "../../assets/logo.png";
+import useUser from "../../hook/useUser";
+import Login from "../Login";
+import Signup from "../Signup";
+import "./Header.css";
 
 const Header = () => {
+  const [user, setUser] = useUser();
   return (
-    <Navbar collapseOnSelect expand="lg">
+    <Navbar collapseOnSelect expand="lg" className="d-none d-md-block">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand className="d-none d-md-block" href="#home">
           <img src={logo} alt="" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="w-100">
             <div className="w-50 mx-auto position-relative">
@@ -32,20 +35,43 @@ const Header = () => {
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                <span>Create Account.</span>
-                <span className="text-primary">It's free!</span>
+                {user ? (
+                  <>
+                    <img
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        borderRadius: "50%",
+                      }}
+                      src={"https://i.ibb.co/w4d8N1M/personal-Image.jpg"}
+                      alt=""
+                    />{" "}
+                    <span>Al Amin </span>
+                  </>
+                ) : (
+                  <>
+                    <span>Create Account.</span>
+                    <span className="text-primary">It's free!</span>
+                  </>
+                )}
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li>
-                  <button class="dropdown-item" type="button">
-                    Sign Up
-                  </button>
-                </li>
-                <li>
-                  <button class="dropdown-item" type="button">
-                    Login
-                  </button>
-                </li>
+                {user ? (
+                  <li className="ms-2 btn" onClick={() => setUser(false)}>
+                    {" "}
+                    Logout
+                  </li>
+                ) : (
+                  <>
+                    {" "}
+                    <li>
+                      <Signup />
+                    </li>
+                    <li>
+                      <Login />
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </Nav>

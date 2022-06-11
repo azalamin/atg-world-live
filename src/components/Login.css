@@ -1,0 +1,11 @@
+.modal-top {
+  background-color: #effff4;
+  text-align: center;
+}
+.submit-btn {
+  border-radius: 30px;
+  margin-top: 15px;
+}
+.social-login {
+  border: 1px solid lightgray;
+}
