@@ -1,0 +1,8 @@
+.active-route {
+  border-bottom: 1px solid gray;
+  margin-bottom: -4px;
+}
+hr {
+  height: 1px;
+  margin-top: -9px;
+}
