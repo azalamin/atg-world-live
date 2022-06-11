@@ -1,0 +1,14 @@
+.search-box {
+  padding: 8px 15px 8px 45px;
+  border-radius: 20px;
+  border: none;
+  background-color: #f2f2f2;
+}
+
+.icon {
+  position: absolute;
+  top: 12px;
+  left: 13px;
+  font-size: 18px;
+  color: #8b8a8a;
+}
